@@ -77,7 +77,6 @@ function emailReg(text) {
 }
 
 function pwReg(text) {
-  console.log("pwReg");
   const re = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-]).{6,16}$/;
   return re.test(String(text).toLowerCase());
 }
