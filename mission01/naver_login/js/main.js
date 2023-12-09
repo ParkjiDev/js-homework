@@ -11,8 +11,13 @@ const user = {
   id: "asd@naver.com",
   pw: "spdlqj123!@",
 };
-
 const WELCOME_PAGE_URL = "welcome.html";
+
+// 상태 저장
+let inputStatus = {
+  email: false,
+  pw: false,
+};
 
 // element
 const inputEmail = document.querySelector("#userEmail");
@@ -28,8 +33,19 @@ inputPw.addEventListener("input", handleInput);
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  // email과 pw 모두 유효성 검사 통과시 user객체와 비교
-  if (emailReg(inputEmail.value) && pwReg(inputPw.value)) {
+  // inputStatus 객체에 저장되어 있는 input 요소들의 status를 검사
+  // 모든 value가 true일 경우 statusTest = true
+  let statusTest = (() => {
+    for (const key in inputStatus) {
+      if (!inputStatus[key]) {
+        return false;
+      }
+    }
+    return true;
+  })();
+
+  // 모든 input요소의 상태가 true일 경우 입력값과 user객체에 저장되어 있는 값과 비교
+  if (statusTest) {
     if (inputEmail.value === user.id && inputPw.value === user.pw) {
       window.location.href = WELCOME_PAGE_URL;
     } else {
@@ -43,30 +59,35 @@ loginForm.addEventListener("submit", (e) => {
 function handleInput() {
   switch (this.id) {
     case "userEmail":
-      inputValid(this, emailReg);
+      inputValid(this, emailReg, "email");
       break;
     case "userPassword":
-      inputValid(this, pwReg);
+      inputValid(this, pwReg, "pw");
       break;
   }
 }
 
-function inputValid(el, regFunc) {
-  if (regFunc(el.value)) {
-    removeClass(el, "is--invalid");
+// 정규식 이용하여 input값이 유효한지 검사
+// 유효할 경우 is--invalid class 삭제, inputStatus에서 해당 프로퍼티의 값 true로 변경
+// 유효하지 않은 경우 is--invalid class 추가, inputStatus에서 해당 프로퍼티의 값 false로 변경
+function inputValid(node, regFunc, statusTarget) {
+  if (regFunc(node.value)) {
+    removeClass(node, "is--invalid");
+    inputStatus[statusTarget] = true;
   } else {
-    addClass(el, "is--invalid");
+    addClass(node, "is--invalid");
+    inputStatus[statusTarget] = false;
   }
 }
 
-// 해당 element에 class추가
-function addClass(el, className) {
-  el.classList.add(className);
+// 해당 노드에 class추가
+function addClass(node, className) {
+  node.classList.add(className);
 }
 
-// 해당 element에 class삭제
-function removeClass(el, className) {
-  el.classList.remove(className);
+// 해당 노드에 class삭제
+function removeClass(node, className) {
+  node.classList.remove(className);
 }
 
 function emailReg(text) {
