@@ -24,6 +24,7 @@ function handleClick(e) {
   setBgColor(li);
   setImage(li);
   setNameText(li);
+  setAudio(li);
 }
 
 function selectImg(li) {
@@ -44,7 +45,6 @@ function setBgColor(li) {
 
 function setImage(li) {
   const index = li.dataset.index;
-
   const imgSrc = `./assets/${data[index - 1].name.toLowerCase()}.jpeg`;
   const alt = data[index - 1].alt;
 
@@ -56,4 +56,16 @@ function setNameText(li) {
   const index = li.dataset.index;
   const nameText = data[index - 1].name;
   h1.textContent = nameText;
+}
+
+function setAudio(li) {
+  const audioSrc = selectAudio(li);
+  const audio = new AudioPlayer(audioSrc);
+  audio.play();
+}
+
+function selectAudio(li) {
+  const index = li.dataset.index;
+  const audioSrc = `./assets/audio/${data[index - 1].name.toLowerCase()}.m4a`;
+  return audioSrc;
 }
