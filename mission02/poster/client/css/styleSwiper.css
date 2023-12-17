@@ -1,0 +1,68 @@
+body {
+  /* transition: all 0.3s; */
+  background: linear-gradient(to bottom, #ff6a00, #720400);
+  height: 100vh;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nickName {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.swiper {
+  max-width: 20vw;
+  max-height: 60vh;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.swiper .swiper-slide img {
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .swiper {
+    max-width: 35vw;
+  }
+}
+
+.bullet {
+  display: inline-block;
+  width: 60px;
+  height: 88px;
+  margin: 0.3rem;
+  cursor: pointer;
+  border: 4px solid transparent;
+  transition: all 0.3s;
+}
+
+.bullet img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.is-active {
+  border: 4px solid white;
+}
