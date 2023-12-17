@@ -35,5 +35,7 @@ https://github.com/ParkjiDev/test/assets/148675654/e1279157-e50d-46d8-b3d3-a7158
 - 오디오 재생<br/>
 <img src="https://github.com/ParkjiDev/test/assets/148675654/41559a42-c57e-49a3-9c33-346aaf21f167"  width="60%" height="60%"/><br/>
 
-### 진행중
- - swiper로 슬라이드 변경 해보는 중
+### swiper slide 추가
+  https://github.com/ParkjiDev/js-homework/assets/148675654/13a60440-001c-4a06-90a5-f168297fe8db
+
+  https://github.com/ParkjiDev/js-homework/commit/5db684a7744371cfa8c1fb625ed5d08e5063a92f
