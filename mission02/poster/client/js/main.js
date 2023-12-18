@@ -14,6 +14,13 @@ const visualImg = getNode(".visual img");
 const navigation = getNode(".nav");
 const list = getNodes(".nav li");
 
+const audio = [
+  new AudioPlayer(`./assets/audio/ember.m4a`),
+  new AudioPlayer(`./assets/audio/wade.m4a`),
+  new AudioPlayer(`./assets/audio/clod.m4a`),
+  new AudioPlayer(`./assets/audio/gale.m4a`),
+];
+
 // 이미지 클릭에 대한 eventListener 등록
 bindEvent(navigation, "click", handleClick);
 
@@ -65,13 +72,8 @@ function setNameText(li) {
 
 // 선택한 이미지에 따라 오디오 파일 재생
 function setAudio(li) {
-  const audioSrc = selectAudio(li);
-  const audio = new AudioPlayer(audioSrc);
-  audio.play();
-}
-
-function selectAudio(li) {
   const index = li.dataset.index;
-  const audioSrc = `./assets/audio/${data[index - 1].name.toLowerCase()}.m4a`;
-  return audioSrc;
+  if (audio[index - 1].isPlaying()) return;
+  audio.forEach((sound) => sound.stop());
+  audio[index - 1].play();
 }
