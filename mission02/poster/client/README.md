@@ -4,6 +4,8 @@
 
 ### 결과 화면
 https://github.com/ParkjiDev/test/assets/148675654/e1279157-e50d-46d8-b3d3-a715882110af
+- [바로가기](https://parkjidev.github.io/js-homework/mission02/poster/client/)
+- [바로가기(swiper 버전)](https://parkjidev.github.io/js-homework/mission02/poster/client/indexSwiper.html)
 
 ### 요구사항
 
