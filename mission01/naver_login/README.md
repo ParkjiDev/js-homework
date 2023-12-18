@@ -6,6 +6,7 @@
 ### 결과 화면
 
 https://github.com/ParkjiDev/test/assets/148675654/69049dab-d32e-42ae-9f88-1454718341b9
+- [바로가기](https://parkjidev.github.io/js-homework/mission01/naver_login/)
 
 
 <br/><br/>
